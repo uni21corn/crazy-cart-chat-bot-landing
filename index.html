@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Подбор франшизы Crazy Cart</title>
+    <meta
+      name="description"
+      content="Ответьте на 5 коротких вопросов, и менеджер Crazy Cart подберет формат франшизы под ваш город, бюджет и уровень участия."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./avito-chat.css?v=20260513-2" />
+  </head>
+  <body>
+    <main class="chat-app" aria-label="Чат с менеджером Crazy Cart">
+      <section class="chat-shell" aria-live="polite">
+        <div class="loader" id="loader">
+          <div class="loader__spinner" aria-hidden="true"></div>
+          <p>Подбираем формат франшизы для вашего города...</p>
+        </div>
+
+        <div class="chat" id="chat" hidden>
+          <header class="chat-header">
+            <div class="chat-header__top">
+              <div class="operator-avatar">
+                <span class="avatar-fallback">CC</span>
+                <img
+                  src="./assets/crazy-cart-logo.svg?v=20260513-2"
+                  alt="Crazy Cart"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                  onerror="this.remove()"
+                />
+                <i aria-hidden="true"></i>
+              </div>
+              <div>
+                <p class="operator-name">Менеджер Crazy Cart</p>
+                <p class="operator-status">онлайн</p>
+              </div>
+            </div>
+            <p class="chat-header__note">Crazy Cart — франшиза детских парков</p>
+          </header>
+
+          <div class="progress" aria-hidden="true">
+            <span id="progressBar"></span>
+          </div>
+
+          <div class="messages" id="messages"></div>
+
+          <div class="answer-panel" id="answerPanel"></div>
+        </div>
+      </section>
+    </main>
+
+    <template id="botMessageTemplate">
+      <div class="message message--bot">
+        <div class="message__avatar">
+          <span class="avatar-fallback">CC</span>
+          <img
+            src="./assets/crazy-cart-logo.svg?v=20260513-2"
+            alt="Crazy Cart"
+            decoding="async"
+            referrerpolicy="no-referrer"
+            onerror="this.remove()"
+          />
+        </div>
+        <div class="message__bubble">
+          <p></p>
+        </div>
+      </div>
+    </template>
+
+    <template id="userMessageTemplate">
+      <div class="message message--user">
+        <div class="message__bubble">
+          <p></p>
+        </div>
+      </div>
+    </template>
+
+    <script src="./avito-chat.js?v=20260513-2"></script>
+  </body>
+</html>
