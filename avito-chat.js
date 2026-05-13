@@ -1,7 +1,7 @@
 const introMessages = [
-  "Здравствуйте! Я менеджер Crazy Cart.",
+  "Здравствуйте! Меня зовут Анна, я менеджер Crazy Cart.",
   "Помогу понять, какой формат франшизы подойдет под ваш город, бюджет и уровень участия.",
-  "Ответьте на 5 коротких вопросов — подготовим презентацию, финмодель и показатели партнеров из похожих городов.",
+  "Ответьте на 4 коротких вопроса — подготовим презентацию, финмодель и показатели партнеров из похожих городов.",
 ];
 
 const questions = [
@@ -11,49 +11,38 @@ const questions = [
     options: [
       { id: "moscow", label: "Москва" },
       { id: "spb", label: "Санкт-Петербург" },
-      { id: "million_plus", label: "Город от 800 000 жителей" },
-      { id: "regional", label: "Город 100 000–800 000 жителей" },
-      { id: "choosing", label: "Пока выбираю город" },
+      { id: "kazan", label: "Казань" },
+      { id: "ekaterinburg", label: "Екатеринбург" },
+      { id: "other", label: "Другой город" },
     ],
   },
   {
     id: "investment",
     text: "Какую сумму готовы инвестировать в открытие?",
     options: [
-      { id: "under_5", label: "До 5 млн ₽" },
-      { id: "5_10", label: "От 5 до 10 млн ₽" },
-      { id: "over_10", label: "Более 10 млн ₽" },
-      { id: "need_terms", label: "Хочу обсудить индивидуальные условия" },
-    ],
-  },
-  {
-    id: "format",
-    text: "Какой формат франшизы вам ближе?",
-    options: [
-      { id: "closed_park", label: "Закрытый парк от 350 м²" },
-      { id: "island", label: "Островок / открытая площадка 100–250 м²" },
-      { id: "large_park", label: "Большой парк 1000+ м²" },
-      { id: "need_help", label: "Нужна рекомендация по формату" },
+      { id: "under_5", label: "До 5 млн руб." },
+      { id: "5_10", label: "От 5 до 10 млн руб." },
+      { id: "over_10", label: "Более 10 млн руб." },
     ],
   },
   {
     id: "profit_expectation",
-    text: "Какая чистая прибыль в месяц вас устроит?",
+    text: "Какая чистая прибыль на руки в месяц вас устроит?",
     options: [
-      { id: "250_500", label: "250 000–500 000 ₽" },
-      { id: "500_1500", label: "500 000–1 500 000 ₽" },
-      { id: "over_1500", label: "Более 1 500 000 ₽" },
-      { id: "want_model", label: "Хочу увидеть расчет по моему городу" },
+      { id: "250_500", label: "250 000 - 500 000 руб." },
+      { id: "500_1500", label: "500 000 - 1 500 000 руб." },
+      { id: "over_1500", label: "Более 1 500 000 руб." },
     ],
   },
   {
     id: "management",
     text: "Как планируете управлять бизнесом?",
     options: [
-      { id: "turnkey", label: "Хочу бизнес под ключ: вы даете маркетолога, управляющего и отдел продаж" },
-      { id: "active", label: "Буду активно участвовать и управлять самостоятельно" },
-      { id: "scale", label: "Планирую открывать несколько точек" },
-      { id: "undecided", label: "Пока не определился" },
+      {
+        id: "turnkey",
+        label: "Хочу бизнес «под ключ»: вы даете маркетолога, управляющего и отдел продаж.",
+      },
+      { id: "active", label: "Буду во всё вникать и управлять самостоятельно." },
     ],
   },
 ];
@@ -68,10 +57,10 @@ const userTemplate = document.querySelector("#userMessageTemplate");
 const pagePath = window.location.pathname.replace(/\/+$/, "");
 const linkPrefix = pagePath.endsWith("/avito") ? ".." : ".";
 const mainSiteUrl = "https://franchise.crazy-cart.ru/";
-const avatarImageUrl = "./assets/crazy-cart-logo.svg?v=20260513-2";
+const avatarImageUrl = "./assets/anna-avatar.jpg?v=20260513-3";
 const avatarMarkup = `
-  <span class="avatar-fallback">CC</span>
-  <img src="${avatarImageUrl}" alt="Crazy Cart" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()" />
+  <span class="avatar-fallback">А</span>
+  <img src="${avatarImageUrl}" alt="Анна" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()" />
 `;
 
 const state = {
@@ -342,7 +331,7 @@ function renderContactForm() {
     answerPanel.innerHTML = "";
     addUserMessage(payload.contact.phone);
     await typeBotMessage(
-      "Спасибо! Менеджер Crazy Cart свяжется с вами в ближайшее рабочее время и отправит материалы по франшизе.",
+      "Спасибо! Анна свяжется с вами в ближайшее рабочее время и отправит материалы по франшизе.",
       760,
     );
     renderSuccessActions();
