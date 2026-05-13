@@ -174,10 +174,6 @@ async function handleAnswer(question, option) {
   state.questionIndex = questions.length;
   setProgress();
   await typeBotMessage("Спасибо, я вижу основные вводные по вашему запуску.", 620);
-  await typeBotMessage(
-    "На следующем шаге менеджер уточнит город, бюджет и подходящий формат, чтобы отправить материалы без лишних общих обещаний.",
-    900,
-  );
   await typeBotMessage("Куда прислать презентацию и финансовую модель?", 620);
   renderContactForm();
 }
@@ -233,7 +229,6 @@ function getLeadPayload(form) {
       name: formData.get("name")?.trim() || "",
       phone: formData.get("phone")?.trim() || "",
       contactMethod: formData.get("contact_method") || "",
-      city: formData.get("city")?.trim() || "",
     },
   };
 }
@@ -251,11 +246,6 @@ function renderContactForm() {
         <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" inputmode="tel" required />
       </label>
       <p class="field-error" id="phoneError" aria-live="polite"></p>
-
-      <label>
-        <span>Город</span>
-        <input type="text" name="city" placeholder="Например, Казань" autocomplete="address-level2" required />
-      </label>
 
       <label>
         <span>Куда удобнее получить информацию</span>
@@ -282,7 +272,6 @@ function renderContactForm() {
   const form = answerPanel.querySelector("#contactForm");
   const name = form.elements.name;
   const phone = form.elements.phone;
-  const city = form.elements.city;
   const phoneError = answerPanel.querySelector("#phoneError");
 
   scrollToBottom();
@@ -305,12 +294,6 @@ function renderContactForm() {
     if (!validatePhone(phone.value)) {
       phoneError.textContent = "Введите полный номер телефона";
       phone.focus();
-      return;
-    }
-
-    if (!city.value.trim()) {
-      phoneError.textContent = "Введите город";
-      city.focus();
       return;
     }
 
