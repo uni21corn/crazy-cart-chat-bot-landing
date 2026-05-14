@@ -57,7 +57,7 @@ const userTemplate = document.querySelector("#userMessageTemplate");
 const pagePath = window.location.pathname.replace(/\/+$/, "");
 const linkPrefix = pagePath.endsWith("/avito") ? ".." : ".";
 const mainSiteUrl =
-  "http://franchise.crazy-cart.ru/chat_bot/?utm_source=test-avito&utm_medium={price_model}&utm_campaign={campaign_id}&utm_term={adgroup_id}&utm_content={ad_id}&rs=avito-ads_{price_model}_{campaign_id}_{adgroup_id}_{ad_id}&roistat_param1={click_id}";
+  "https://franchise.crazy-cart.ru/?utm_source=avito-ads&utm_medium={price_model}&utm_campaign={campaign_id}&utm_term={adgroup_id}&utm_content={ad_id}&rs=avito-ads_{price_model}_{campaign_id}_{adgroup_id}_{ad_id}&roistat_param1={click_id}";
 const avatarImageUrl = "./assets/anna-avatar.jpg?v=20260513-3";
 const avatarMarkup = `
   <span class="avatar-fallback">А</span>
